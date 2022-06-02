@@ -1,0 +1,4 @@
+# icepack.setup settings
+
+nprocs = 1
+data_dir = '/Users/simondriscoll/icepack-dirs/input/Icepack_data/forcing'

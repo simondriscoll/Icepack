@@ -1,0 +1,6 @@
+Thu  2 Jun 2022 20:42:32 BST./icepack.setup -m conda -e macos -c mycase
+Thu  2 Jun 2022 20:42:32 BST./icepack.setup adding namelist modes set_env.col
+Thu  2 Jun 2022 20:42:32 BST./icepack.setup /Users/simondriscoll/Icepack/configuration/scripts/options/set_[nml,env].UnDeFiNeD not found
+Thu  2 Jun 2022 20:43:05 BST ./icepack.build:mycase build completed icepack.bldlog.220602-204248
+Thu  2 Jun 2022 20:43:15 BST ./icepack.run: mycase run completed icepack.runlog.220602-204311
+Thu  2 Jun 2022 20:43:15 BST ./icepack.submit: mycase job submitted

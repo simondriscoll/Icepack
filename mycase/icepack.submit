@@ -1,0 +1,5 @@
+#!/bin/csh -f 
+
+  ./icepack.run
+echo "`date` ${0}: mycase job submitted"  >> /Users/simondriscoll/Icepack/mycase/README.case
+

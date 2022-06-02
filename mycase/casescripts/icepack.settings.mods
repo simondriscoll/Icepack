@@ -1,0 +1,30 @@
+# icepack.setup settings
+
+setenv ICE_SANDBOX  /Users/simondriscoll/Icepack
+setenv ICE_SCRIPTS  /Users/simondriscoll/Icepack/configuration/scripts
+setenv ICE_CASENAME mycase
+setenv ICE_CASEDIR  /Users/simondriscoll/Icepack/mycase
+setenv ICE_MACHINE  conda
+setenv ICE_ENVNAME  macos
+setenv ICE_MACHCOMP conda_macos
+setenv ICE_RUNDIR   /Users/simondriscoll/icepack-dirs/runs/mycase
+setenv ICE_GRID     col
+setenv ICE_NXGLOB   4
+setenv ICE_NTASKS   1
+setenv ICE_NTHRDS   1
+setenv ICE_BASELINE /Users/simondriscoll/icepack-dirs/baseline
+setenv ICE_BASEGEN  UnDeFiNeD
+setenv ICE_BASECOM  UnDeFiNeD
+setenv ICE_SPVAL    UnDeFiNeD
+setenv ICE_QUIETMODE  false
+setenv ICE_TEST     UnDeFiNeD
+setenv ICE_TESTNAME UnDeFiNeD
+setenv ICE_BFBCOMP  UnDeFiNeD
+setenv ICE_ACCOUNT  P0000000
+setenv ICE_QUEUE    debug
+setenv ICE_COVERAGE false
+
+# set_env.col
+
+setenv ICE_GRID       col
+
