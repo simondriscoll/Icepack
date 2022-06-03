@@ -17,3 +17,5 @@ Fri  3 Jun 2022 00:47:33 BST ./icepack.build:mycase build completed icepack.bldl
 Fri  3 Jun 2022 01:59:41 BST ./icepack.run: mycase run completed icepack.runlog.220603-005119
 Fri  3 Jun 2022 01:59:41 BST ./icepack.submit: mycase job submitted
 Fri  3 Jun 2022 17:41:09 BST ./icepack.build:mycase build completed icepack.bldlog.220603-174047
+Fri  3 Jun 2022 18:54:45 BST ./icepack.run: mycase run completed icepack.runlog.220603-174125
+Fri  3 Jun 2022 18:54:45 BST ./icepack.submit: mycase job submitted
