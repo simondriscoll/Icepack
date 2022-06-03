@@ -4,3 +4,16 @@ Thu  2 Jun 2022 20:42:32 BST./icepack.setup /Users/simondriscoll/Icepack/configu
 Thu  2 Jun 2022 20:43:05 BST ./icepack.build:mycase build completed icepack.bldlog.220602-204248
 Thu  2 Jun 2022 20:43:15 BST ./icepack.run: mycase run completed icepack.runlog.220602-204311
 Thu  2 Jun 2022 20:43:15 BST ./icepack.submit: mycase job submitted
+Thu  2 Jun 2022 20:47:01 BST ./icepack.build:mycase build completed icepack.bldlog.220602-204644
+Thu  2 Jun 2022 20:47:17 BST ./icepack.run: mycase run completed icepack.runlog.220602-204709
+Thu  2 Jun 2022 20:47:17 BST ./icepack.submit: mycase job submitted
+Thu  2 Jun 2022 20:50:18 BST ./icepack.build:mycase build completed icepack.bldlog.220602-205001
+Thu  2 Jun 2022 20:51:39 BST ./icepack.run: mycase run completed icepack.runlog.220602-205024
+Thu  2 Jun 2022 20:51:39 BST ./icepack.submit: mycase job submitted
+Thu  2 Jun 2022 21:01:12 BST ./icepack.build:mycase build completed icepack.bldlog.220602-210053
+Thu  2 Jun 2022 21:02:42 BST ./icepack.run: mycase run completed icepack.runlog.220602-210138
+Thu  2 Jun 2022 21:02:42 BST ./icepack.submit: mycase job submitted
+Fri  3 Jun 2022 00:47:33 BST ./icepack.build:mycase build completed icepack.bldlog.220603-004714
+Fri  3 Jun 2022 01:59:41 BST ./icepack.run: mycase run completed icepack.runlog.220603-005119
+Fri  3 Jun 2022 01:59:41 BST ./icepack.submit: mycase job submitted
+Fri  3 Jun 2022 17:41:09 BST ./icepack.build:mycase build completed icepack.bldlog.220603-174047

@@ -117,6 +117,48 @@
 
       character(len=*),parameter :: subname='(compute_ponds_lvl)'
 
+
+      !--
+      !For every variable in we output its value at the start of the lvl melt pond parametrisation
+      !--
+
+      Print *, "++++++++++++++++++++"
+      Print *, "Inside compute_ponds_lvl SubRoutine (1)."
+      Print *, "++++++++++++++++++++"
+      Print *, "nilyr, is:                    ", nilyr
+      Print *, "ktherm, is:                   ", ktherm
+      Print *, "dt, is:                       ", dt
+      Print *, "hi_min, is:                   ", hi_min
+      Print *, "dpscale, is:                  ", dpscale
+      Print *, "frzpnd, is:                   ", frzpnd
+      Print *, "Tsfcn, is:                    ", Tsfcn
+      Print *, "alvl, is:                     ", alvl
+      Print *, "rfrac, is:                    ", rfrac
+      Print *, "meltt, is:                    ", meltt
+      Print *, "melts, is:                    ", melts
+      Print *, "frain, is:                    ", frain
+      Print *, "Tair, is:                     ", Tair
+      Print *, "fsurfn, is:                   ", fsurfn
+      Print *, "aicen, is:                    ", aicen
+      Print *, "vicen, is:                    ", vicen
+      Print *, "vsnon, is:                    ", vsnon
+      Print *, "meltsliqn, is:                ", meltsliqn
+      Print *, "qicen, is:                    ", qicen
+      Print *, "sicen, is:                    ", sicen
+      Print *, "dhs, is:                      ", dhs
+      Print *, "apnd (in), is:                ", apnd
+      Print *, "hpnd (in), is:                ", hpnd
+      Print *, "ipnd (in), is:                ", ipnd
+      Print *, "ffrac (in), is:               ", ffrac
+      Print *, "++++++++++++++++++++"
+      Print *, "Inside compute_ponds_lvl SubRoutine (2)."
+      Print *, "++++++++++++++++++++"
+
+      !--
+      !End of Outputting Values at the Start of the Melt Pond Parametrization
+      !--
+
+
       !-----------------------------------------------------------------
       ! Initialize 
       !-----------------------------------------------------------------
@@ -277,6 +319,17 @@
          if (trim(frzpnd) == 'hlid') ipnd = hlid
 
       endif
+
+      Print *, "++++++++++++++++++++"
+      Print *, "Inside compute_ponds_lvl SubRoutine (3)."
+      Print *, "++++++++++++++++++++"
+      Print *, "apnd (out):                   ", apnd
+      Print *, "hpnd (out):                   ", hpnd
+      Print *, "ipnd (out):                   ", ipnd
+      Print *, "ffrac (out):                  ", ffrac
+      Print *, "++++++++++++++++++++"
+      Print *, "Inside compute_ponds_lvl SubRoutine (4)."
+      Print *, "++++++++++++++++++++"
 
       end subroutine compute_ponds_lvl
 
