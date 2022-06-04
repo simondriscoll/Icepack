@@ -59,7 +59,7 @@
 
       subroutine runtime_diags (dt)
 
-      use icedrv_calendar,  only: istep1, time
+      use icedrv_calendar,  only: istep1, time!added by simon
       use icedrv_arrays_column, only: floe_rad_c
       use icedrv_flux, only: evap, fsnow, frazil
       use icedrv_flux, only: fswabs, flw, flwout, fsens, fsurf, flat
@@ -195,9 +195,7 @@
         !-----------------------------------------------------------------
         ! start spewing
         !-----------------------------------------------------------------
-        !Print *, "Inside XYZZYX"
-        !Print *, 'From icedrv_diagnostics istep1, i, time', istep1, time
- 
+        
         write(nu_diag_out+n-1,899) nx_names(n)
         
         write(nu_diag_out+n-1,*) '                         '
@@ -281,91 +279,8 @@
 899   format (43x,a24)
 900   format (a25,2x,f24.17)
 901   format (a25,2x,f24.17,i6)
-
-      !Print *, "Testing printing outside outside do"
-
-      !Print *, "Hello I am talking from inside runtime_diags, and the time is", istep1, time
-
-      
-      !Print *, '----------atm----------'
-      !Print *, 'air temperature (C)    = ',pTair
-      !Print *, 'specific humidity      = ',Qa(n)
-      !Print *, 'snowfall (m)           = ',pfsnow
-      !Print *, 'rainfall (m)           = ',pfrain
-      !if (.not.calc_Tsfc) then
-      !  Print *, 'total surface heat flux= ', fsurf(n)
-      !  Print *, 'top sfc conductive flux= ',fcondtop(n)
-      !  Print *, 'latent heat flux       = ',flat(n)
-      !else
-      !  Print *, 'shortwave radiation sum= ',fsw(n)
-      !  Print *, 'longwave radiation     = ',flw(n)
-      !endif
-      !Print *, '----------ice----------'
-      !Print *, 'area fraction          = ',aice(n)! ice area
-      !Print *, 'avg ice thickness (m)  = ',hiavg
-      !Print *, 'avg snow depth (m)     = ',hsavg
-      !Print *, 'avg salinity (ppt)     = ',psalt
-      !Print *, 'avg brine thickness (m)= ',hbravg
-      !Print *, 'bare ice albedo        = ',albice(n)! bare ice albedo
-      !Print *, 'snow albedo            = ',albsno(n)! snow albedo
-      !Print *, 'pond albedo            = ',albpnd(n)! pond albedo
-      !Print *, 'effective pond area    = ',apeff_ai(n)! effective pond area used for radiation calculation
-      !Print *, 'snow fraction each cat = ',snowfrac(n)! snow fraction on each category
-!
-      !if (tr_fsd) &
-      !Print *, 'avg fsd rep radius (m) = ',fsdavg
-!
-      !if (calc_Tsfc) then
-      !  Print *, 'surface temperature(C) = ',pTsfc ! ice/snow
-      !  Print *, 'absorbed shortwave flx = ',fswabs(n)
-      !  Print *, 'outward longwave flx   = ',flwout(n)
-      !  Print *, 'sensible heat flx      = ',fsens(n)
-      !  Print *, 'latent heat flx        = ',flat(n)
-      !endif
-      !Print *, 'subl/cond (m ice)      = ',pevap   ! sublimation/condensation
-      !Print *, 'top melt (m)           = ',meltt(n)
-      !Print *, 'bottom melt (m)        = ',meltb(n)
-      !Print *, 'lateral melt (m)       = ',meltl(n)
-      !Print *, 'new ice (m)            = ',frazil(n) ! frazil
-      !Print *, 'congelation (m)        = ',congel(n)
-      !Print *, 'snow-ice (m)           = ',snoice(n)
-      !Print *, 'snow change (m)        = ',dsnow(n)
-      !Print *, 'effective dhi (m)      = ',pdhi(n)   ! ice thickness change
-      !Print *, 'effective dhs (m)      = ',pdhs(n)   ! snow thickness change
-      !Print *, 'intnl enrgy chng(W/m^2)= ',pde (n)   ! ice/snow energy change
-!
-      !if (tr_snow) then
-      !   if (trim(snwredist) /= 'none') then
-      !      Print *, 'avg snow density(kg/m3)= ',rhosavg
-      !   endif
-      !   if (snwgrain) then
-      !      Print *, 'avg snow grain radius  = ',rsnwavg
-      !      Print *, 'mass ice in snow(kg/m2)= ',smicetot
-      !      Print *, 'mass liq in snow(kg/m2)= ',smliqtot
-      !      Print *, 'mass ice+liq    (kg/m2)= ',smicetot+smliqtot
-      !      Print *, 'mass std snow   (kg/m2)= ',smtot
-      !      Print *, 'max  ice+liq    (kg/m2)= ',rhow * hsavg
-      !   endif
-      !endif
-
-      !Print *, '----------ocn----------'
-      !Print *, 'sst (C)                = ',sst(n)  ! sea surface temperature
-      !Print *, 'sss (ppt)              = ',sss(n)  ! sea surface salinity
-      !Print *, 'freezing temp (C)      = ',Tf(n)   ! freezing temperature
-      !Print *, 'heat used (W/m^2)      = ',pfhocn  ! ocean heat used by ice
-!
-      !if (tr_iso) then
-      !  do k = 1, n_iso
-      !     Print *, 'isotopic precip      = ',fiso_atm(n,k)*dt,k
-      !     Print *, 'isotopic evap/cond   = ',fiso_evap(n,k)*dt,k
-      !     Print *, 'isotopic loss to ocn = ',fiso_ocn(n,k)*dt,k
-      !     Print *, 'isotopic gain/loss   = ',(fiso_atm(n,k)-fiso_ocn(n,k)+fiso_evap(n,k))*dt,k
-      !     Print *, 'isotopic conc chg    = ',pdiso(n,k),k
-      !  enddo
-      !endif
-
-      Print *, "Printing from inside runtime_diags, and istep1 and time is", istep1, time 
-      Print *, 'runtime_diags'
+      Print *, "runtime_diags: istep1:        ", istep1
+      Print *, "runtime_diags:      time:     ", time
       end subroutine runtime_diags
 
 !=======================================================================
@@ -602,13 +517,7 @@
       !-----------------------------------------------------------------
       ! write diagnostics
       !-----------------------------------------------------------------
-      
-      Print *, 'From icedrv_diagnostics istep1, i, time', &
-                        istep1, i, time
-      do n = 1, ncat
-         Print *, 'From icedrv_diagnostics: aicen n is and aicen is', n, aicen(i,n)
-      enddo
- 
+
       write(nu_diag,*) trim(plabel)
       write(nu_diag,*) 'istep1, i, time', &
                         istep1, i, time

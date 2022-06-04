@@ -57,7 +57,6 @@
       use icepack_meltpond_lvl, only: compute_ponds_lvl
       use icepack_meltpond_topo, only: compute_ponds_topo
       use icepack_snow, only: drain_snow
-      !use icedrv_calendar,  only: istep1, time
 
       implicit none
 
@@ -2894,10 +2893,8 @@
                   
             elseif (tr_pond_lvl) then
                rfrac = rfracmin + (rfracmax-rfracmin) * aicen(n)
-               !Print *, "Hello World"
-               !Print *, "dt is", dt
-               !Print *, "Tair is", Tair
-               Print *, "n is ", n
+
+               Print *, "icepack_therm_vertical, n is: ", n
 
                call compute_ponds_lvl (dt=dt,            &
                                        nilyr=nilyr,      &
@@ -2924,9 +2921,6 @@
                                        hpnd=hpnd    (n), &
                                        ipnd=ipnd    (n), &
                                        meltsliqn=l_meltsliqn(n))
-               !Print *, "meltt is ", meltt
-               !Print *, "fsurfn is ", fsurfn
-               !Print *, "fsurfn(n) is ", fsurfn(n)
 
                if (icepack_warnings_aborted(subname)) return
                   

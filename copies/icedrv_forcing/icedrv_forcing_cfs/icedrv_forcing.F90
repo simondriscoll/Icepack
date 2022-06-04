@@ -154,6 +154,7 @@
           cldf_data(:) = c0          ! cloud fraction
 
       if (trim(atm_data_type(1:4)) == 'CFS')   call atm_CFS
+      if (trim(atm_data_type(1:4)) == 'VCS')   call atm_VCS
       if (trim(atm_data_type(1:4)) == 'clim')  call atm_climatological
       if (trim(atm_data_type(1:5)) == 'ISPOL') call atm_ISPOL
       if (trim(atm_data_type(1:4)) == 'NICE')  call atm_NICE
@@ -224,6 +225,35 @@
       character(len=*), parameter :: subname='(get_forcing)'
 
       if (trim(atm_data_type) == 'CFS') then
+         ! calculate data index corresponding to current timestep
+         i = mod(timestep-1,ntime)+1 ! repeat forcing cycle
+         mlast = i
+         mnext = mlast
+         c1intp = c1
+         c2intp = c0
+
+         ! fill all grid boxes with the same forcing data
+         Tair (:) = c1intp *  Tair_data(mlast) + c2intp *  Tair_data(mnext)
+         Qa   (:) = c1intp *    Qa_data(mlast) + c2intp *    Qa_data(mnext)
+         uatm (:) = c1intp *  uatm_data(mlast) + c2intp *  uatm_data(mnext)
+         vatm (:) = c1intp *  vatm_data(mlast) + c2intp *  vatm_data(mnext)
+         fsnow(:) = c1intp * fsnow_data(mlast) + c2intp * fsnow_data(mnext)
+         flw  (:) = c1intp *   flw_data(mlast) + c2intp *   flw_data(mnext)
+         fsw  (:) = c1intp *   fsw_data(mlast) + c2intp *   fsw_data(mnext)
+
+         ! derived (or not otherwise set)
+         potT (:) = c1intp *  potT_data(mlast) + c2intp *  potT_data(mnext)
+         wind (:) = c1intp *  wind_data(mlast) + c2intp *  wind_data(mnext)
+         strax(:) = c1intp * strax_data(mlast) + c2intp * strax_data(mnext)
+         stray(:) = c1intp * stray_data(mlast) + c2intp * stray_data(mnext)
+         rhoa (:) = c1intp *  rhoa_data(mlast) + c2intp *  rhoa_data(mnext)
+         frain(:) = c1intp * frain_data(mlast) + c2intp * frain_data(mnext)
+         swvdr(:) = c1intp * swvdr_data(mlast) + c2intp * swvdr_data(mnext)
+         swvdf(:) = c1intp * swvdf_data(mlast) + c2intp * swvdf_data(mnext)
+         swidr(:) = c1intp * swidr_data(mlast) + c2intp * swidr_data(mnext)
+         swidf(:) = c1intp * swidf_data(mlast) + c2intp * swidf_data(mnext)
+
+      elseif (trim(atm_data_type) == 'VCS') then
          ! calculate data index corresponding to current timestep
          i = mod(timestep-1,ntime)+1 ! repeat forcing cycle
          mlast = i
@@ -579,6 +609,53 @@
       close (nu_forcing)
 
       end subroutine atm_CFS
+      
+!=======================================================================
+
+      subroutine atm_VCS
+
+      integer (kind=int_kind) :: &
+         nt             ! loop index
+
+      real (kind=dbl_kind) :: &
+         dlwsfc,  &     ! downwelling longwave (W/m2)
+         dswsfc,  &     ! downwelling shortwave (W/m2)
+         windu10, &     ! wind components (m/s)
+         windv10, &     !
+         temp2m,  &     ! 2m air temperature (K)
+         spechum ,&     ! specific humidity (kg/kg)
+         precip         ! precipitation (kg/m2/s)
+
+      character (char_len_long) string1
+      character (char_len_long) filename
+      character(len=*), parameter :: subname='(atm_VCS)'
+
+!      atm_data_file = 'cfsv2_2015_220_70_01hr.txt'
+      filename = trim(data_dir)//'/VCS/'//trim(atm_data_file)
+
+      write (nu_diag,*) 'Reading ',filename
+
+      open (nu_forcing, file=filename, form='formatted')
+      read (nu_forcing, *) string1 ! headers
+      read (nu_forcing, *) string1 ! units
+
+      do nt = 1, ntime
+         read (nu_forcing, '(6(f10.5,1x),2(f10.8,1x))') &
+         dswsfc, dlwsfc, windu10, windv10, temp2m, spechum, precip
+
+           flw_data(nt) = dlwsfc
+           fsw_data(nt) = dswsfc
+          uatm_data(nt) = windu10
+          vatm_data(nt) = windv10
+          Tair_data(nt) = temp2m
+          potT_data(nt) = temp2m
+            Qa_data(nt) = spechum
+         fsnow_data(nt) = precip
+      enddo
+
+      close (nu_forcing)
+
+      end subroutine atm_CFS
 
 !=======================================================================
 
@@ -674,6 +751,12 @@
       !-----------------------------------------------------------------
 
          if (trim(atm_data_type) == 'CFS') then
+            ! precip is in kg/m^2/s
+            zlvl0 = c10
+            ! downward longwave as in Parkinson and Washington (1979)
+!            call longwave_parkinson_washington(Tair(nt), cldf(nt), flw(nt))
+
+         if (trim(atm_data_type) == 'VCS') then
             ! precip is in kg/m^2/s
             zlvl0 = c10
             ! downward longwave as in Parkinson and Washington (1979)
