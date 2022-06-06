@@ -27,7 +27,7 @@
                 interp_coeff_monthly, get_wave_spec
 
       integer (kind=int_kind), parameter :: &
-         ntime = 8760        ! number of data points in time
+         ntime = 96432 ! 87672 !8760        ! number of data points in time
 
       integer (kind=int_kind), public :: &
          ycycle          , & ! number of years in forcing cycle

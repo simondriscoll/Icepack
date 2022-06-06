@@ -1,10 +1,10 @@
 &setup_nml
     days_per_year  = 365
-    use_leap_years = .false.
-    year_init      = 2015
+    use_leap_years = .true.
+    year_init      = 2011
     istep0         = 0
     dt             = 3600.0
-    npt            = 1000 ! 876000 !87600!0!87600!8760!876000!113880
+    npt            = 96432 ! 87672 ! 876000 !87600!0!87600!8760!876000!113880
     ndtd           = 1
     ice_ic         = 'default'
     restart        = .false.
@@ -119,8 +119,8 @@
     atm_data_type   = 'CFS'
     ocn_data_type   = 'default'
     bgc_data_type   = 'default'
-    fyear_init      = 2015
-    ycycle          = 1
+    fyear_init      = 2011
+    ycycle          = 11
     data_dir        = '/Users/simondriscoll/icepack-dirs/input/Icepack_data/forcing'
     atm_data_file   = 'cfsv2_2015_220_70_01hr.txt'
     ocn_data_file   = 'unknown_ocn_data_file'
