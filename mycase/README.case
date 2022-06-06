@@ -30,3 +30,23 @@ Fri  3 Jun 2022 20:22:30 BST ./icepack.submit: mycase job submitted
 Fri  3 Jun 2022 20:26:48 BST ./icepack.build:mycase build completed icepack.bldlog.220603-202632
 Fri  3 Jun 2022 21:56:47 BST ./icepack.run: mycase run completed icepack.runlog.220603-202710
 Fri  3 Jun 2022 21:56:47 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 11:31:32 BST ./icepack.build:mycase build completed icepack.bldlog.220606-113102
+Mon  6 Jun 2022 11:31:42 BST ./icepack.run: mycase run completed icepack.runlog.220606-113137
+Mon  6 Jun 2022 11:31:42 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 11:33:48 BST ./icepack.build:mycase build completed icepack.bldlog.220606-113333
+Mon  6 Jun 2022 11:33:57 BST ./icepack.run: mycase run did NOT complete icepack.runlog.220606-113357
+Mon  6 Jun 2022 11:33:57 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 11:35:40 BST ./icepack.run: mycase run completed icepack.runlog.220606-113536
+Mon  6 Jun 2022 11:35:40 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 11:49:32 BST ./icepack.run: mycase run did NOT complete icepack.runlog.220606-114931
+Mon  6 Jun 2022 11:49:32 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 11:51:30 BST ./icepack.run: mycase run did NOT complete icepack.runlog.220606-115130
+Mon  6 Jun 2022 11:51:30 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 12:41:53 BST ./icepack.build:mycase build completed icepack.bldlog.220606-124137
+Mon  6 Jun 2022 12:42:08 BST ./icepack.run: mycase run completed icepack.runlog.220606-124204
+Mon  6 Jun 2022 12:42:08 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 12:43:58 BST ./icepack.run: mycase run completed icepack.runlog.220606-124354
+Mon  6 Jun 2022 12:43:58 BST ./icepack.submit: mycase job submitted
+Mon  6 Jun 2022 15:11:15 BST ./icepack.build:mycase build completed icepack.bldlog.220606-151058
+Mon  6 Jun 2022 15:11:21 BST ./icepack.run: mycase run completed icepack.runlog.220606-151117
+Mon  6 Jun 2022 15:11:21 BST ./icepack.submit: mycase job submitted
