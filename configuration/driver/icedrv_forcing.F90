@@ -251,7 +251,17 @@
          swvdf(:) = c1intp * swvdf_data(mlast) + c2intp * swvdf_data(mnext)
          swidr(:) = c1intp * swidr_data(mlast) + c2intp * swidr_data(mnext)
          swidf(:) = c1intp * swidf_data(mlast) + c2intp * swidf_data(mnext)
+         
 
+         Print *, "QWQWQ     Start  "
+         Print *, "Tair is:  ", Tair
+         Print *, "Qa is:  ", Qa
+         Print *, "utam is:  ", uatm
+         Print *, "vatm is:  ", vatm
+         Print *, "fsnow is:  ", fsnow
+         Print *, "flw is:    ", flw
+         Print *, "fsw is:    ", fsw
+         Print *, "QWQWQ       End  " 
       elseif (trim(atm_data_type) == 'clim') then
          midmonth = 15  ! assume data is given on 15th of every month
          recslot = 1                             ! latter half of month
@@ -577,7 +587,15 @@
       enddo
 
       close (nu_forcing)
-
+         Print *, "QWQWQ   -- atm_CFS  Start  "
+         Print *, "Tair is:  ", Tair
+         Print *, "Qa is:  ", Qa
+         Print *, "utam is:  ", uatm
+         Print *, "vatm is:  ", vatm
+         Print *, "fsnow is:  ", fsnow
+         Print *, "flw is:    ", flw
+         Print *, "fsw is:    ", fsw
+         Print *, "QWQWQ    -- atm_CFS End  "
       end subroutine atm_CFS
 
 !=======================================================================
